@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="relative">
+        <div ref="dropdown" class="relative">
             <input @click="openDropdown" v-model="selectedTect"
                 class="input-field text-left bg-gray-50 border border-gray-300 text-sm sm:text-base rounded-full focus:border-sky-700 focus:border-sky-700 block w-full p-2"
                 :class="text ? 'text-gray-900' : 'text-gray-400'" />
@@ -18,13 +18,13 @@
 </template>
 
 <script setup>
-import { ref, defineProps, computed } from 'vue';
+import { ref, defineProps, computed, onMounted } from 'vue';
 import { Icon } from '@iconify/vue';
 
 const props = defineProps(['open', 'items', 'placeHolder'])
 
 
-const isOpen = ref(false);
+const isOpen = ref(false)
 
 const text = ref('')
 
@@ -33,15 +33,27 @@ const selectedTect = computed(() => {
 })
 
 function openDropdown() {
-    isOpen.value = !isOpen.value;
+    isOpen.value = !isOpen.value
 
 }
 
 function selectItem(item) {
     text.value = item
-    isOpen.value = false;
+    isOpen.value = false
   
 }
+
+const dropdown = ref(null)
+
+function clickOutside(event) {
+    if (dropdown.value && !dropdown.value.contains(event.target)) {
+        isOpen.value = false
+    }
+}
+
+onMounted(() => {
+    document.addEventListener('click', clickOutside)
+})
 </script>
 
 <style scoped>
