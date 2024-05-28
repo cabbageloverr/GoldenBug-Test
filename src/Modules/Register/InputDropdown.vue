@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="relative">
-            <input type="button" @click="openDropdown" v-model="selectedTect"
+            <input @click="openDropdown" v-model="selectedTect"
                 class="input-field text-left bg-gray-50 border border-gray-300 text-sm sm:text-base rounded-full focus:border-sky-700 focus:border-sky-700 block w-full p-2"
                 :class="text ? 'text-gray-900' : 'text-gray-400'" />
 
