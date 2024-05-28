@@ -79,7 +79,7 @@ import NavDesktop from './NavDesktop.vue'
 const isHome = ref(true)
 
 function changePage() {
-    isHome.value = !isHome.value
+    isHome.value = false
 }
 
 function homeUpdate(value) {
