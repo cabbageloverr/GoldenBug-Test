@@ -31,10 +31,9 @@ const emit = defineEmits(['update:home'])
 const isHome = ref(false)
 
 function clickHome(text) {
-    if (text === 'หน้าแรก' && !isHome.value) {
-        isHome.value = !isHome.value
+    if (text === 'หน้าแรก') {
+        isHome.value = true
         emit('update:home', isHome.value)
-        isHome.value = !isHome.value
     }
 }
 
