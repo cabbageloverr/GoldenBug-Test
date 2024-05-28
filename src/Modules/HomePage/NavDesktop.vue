@@ -48,3 +48,10 @@ const navItems =
     ]
 
 </script>
+<style scoped>
+.point-border {
+    background: rgb(23, 50, 74);
+    background: linear-gradient(41deg, rgba(23, 50, 74, 1) 30%, rgba(48, 80, 100, 1) 59%, rgba(46, 79, 101, 1) 60%, rgba(118, 124, 68, 1) 98%);
+}
+
+</style>
